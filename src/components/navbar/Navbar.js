@@ -5,7 +5,6 @@ import {
   Toolbar,
   Typography,
   Button,
-  TextField,
   IconButton,
   Stack,
 } from "@mui/material";
@@ -58,7 +57,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 const Navbar = ({ isLoggedIn, isAdmin, onLogout }) => {
   return (
-    <AppBar position="static">
+    <AppBar className="nav-bar" position="static">
       <Toolbar>
         <IconButton edge="start" color="inherit" aria-label="logo">
           <ShoppingCartIcon />
@@ -94,12 +93,14 @@ const Navbar = ({ isLoggedIn, isAdmin, onLogout }) => {
           </>
         ) : (
           <>
-            <Button color="inherit" component={Link} to="/login">
-              Login
-            </Button>
-            <Button color="inherit" component={Link} to="/signup">
-              Sign Up
-            </Button>
+            <Stack direction="row" spacing={2}>
+              <Button color="inherit" component={Link} to="/login">
+                Login
+              </Button>
+              <Button color="inherit" component={Link} to="/signup">
+                Sign Up
+              </Button>
+            </Stack>
           </>
         )}
       </Toolbar>
